@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<head>
+  <title>Population Simulation</title>
+  <script src="yabble.js"></script>
+  <script src="game.js"></script>
+  <script>
+      require.setModuleRoot('./');
+      require.run('main')
+  </script>
+</head>
+<body>
+
+  <div id="gjs-loader">
+   Loading Game...
+  </div>
+
+  <canvas id="gjs-canvas" style="border-width: 10px; border-style: solid; border-color: green;
+  border-radius: 20px; box-shadow: 20px 20px 10px #888888; background-color: #F8F8F8;"></canvas>
+
+<!-- Background grass.png-->
+
+<!--
+<script>
+=======
+
+<!-- <script>
+>>>>>>> aad0772f4862c41447be64f6ebaa32cef8eee1d3
+  var canvas = document.getElementById('gjs-Canvas');
+  var context = canvas.getContext('2d');
+
+  var imageObj = new Image();
+  imageObj.onload = function() {
+    var pattern = context.createPattern(imageObj, 'repeat');
+
+    context.rect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = pattern;
+    context.fill();
+};
+
+ imageObj.src = 'Users\MES\Desktop\PopulationSim2k15\Grass.png';
+</script>
+<<<<<<< HEAD
+-->
+
+
+
+</body>
+
+
+<script>
+  confirm("Rules: Try to get more food to increase your population before you get too hungry and avoid your predators. Your score will tell you the number of people there are in your population.");
+  confirm("Use the W, A, S, D keys to navigate.");
+  confirm("Are you ready? Let's go!");
+  prompt("What is your name?");
+</script>
+
+<!-- Melissa's "Dots" game chaser code -->
+
+<!--
+<script>
+    var start = new Date();
+    var vectX = function(x1, y1, x2, y2){
+    var vecX = x1 - x2;
+    var vecY = y1 - y2;
+    var distance = Math.sqrt(((vecX)*(vecX)) + ((vecY)*(vecY)));
+    var uxval = vecX/distance;
+    var uyval = vecY/distance;
+    var mxval= uxval * 11;
+    return mxval;
+};
+    var vectY = function(x1, y1, x2, y2){
+    var vecX = x1 - x2;
+    var vecY = y1 - y2;
+    var distance = Math.sqrt(((vecX)*(vecX)) + ((vecY)*(vecY)));
+    var uxval = vecX/distance;
+    var uyval = vecY/distance;
+    var myval= uyval *11;
+    return myval;
+};
+  var maintrack = false;
+  var track = false;
+  setInterval(function(){
+if (!maintrack){
+    var c = document.getElementById("gjs-canvas");
+    var ctx= c.getContext("2d");
+    ctx.beginPath();
+    ctx.clearRect(0,0,500,500);
+    var circlex = circ.xcorc();
+    var circley = circ.ycorc();
+    var recx = rectangle.xcor();
+    var recy = rectangle.ycor();
+    var xvalue = vectX(circlex, circley, recx, recy);
+    var yvalue = vectY(circlex, circley, recx, recy);
+    rectangle.drawRect(xvalue, yvalue);
+    circ.drawCircle(0,0,0)
+  if(!track){
+      var vecX = circlex - recx ;
+      var vecY = circley - recy ;
+      var distance = Math.sqrt(((vecX)*(vecX)) + ((vecY)*(vecY)));
+    if (distance <= 50){
+        track = true;
+        var elapsed = new Date() - start;
+        alert("You lost 50 people! Score = " +elapsed);
+      if (ask){
+        track = false;
+        ctx.clearRect(0, 0, 500, 500);
+        rectangle.drawRect(-recx+50, -recy+50);
+        circ.drawCircle(-circlex + 150,-circley+ 200,0)
+        start = new Date();
+
+      }
+      else
+      {
+        maintrack = true;
+        ctx.clearRect(0, 0, 500, 500);
+      ctx.font="50px Georgia";
+      ctx.fillText("Game Over!",10,50);
+
+      }
+    }
+  }
+}
+}
+
+
+function Rect(xval, yval, length, width){
+  var c = document.getElementById("myCanvas");
+  var ctx= c.getContext("2d");
+  ctx.beginPath();
+  Rect.prototype.xcor = function(){
+    return xval + length/2;
+};
+Rect.prototype.ycor = function(){
+return yval +length/2;
+};
+Rect.prototype.drawRect = function(x, y){
+xval = xval +x;
+yval = yval + y;
+ctx.rect(xval,yval,length,width);
+ctx.lineWidth="10";
+ctx.fillStyle = "blue";
+ctx.fill();
+ctx.closePath();
+ctx.beginPath();
+ctx.strokeStyle="blue";
+ctx.stroke();
+
+
+};
+}
+var  = new Rect(20, 20, 50, 50);
+rectangle.drawRect(0, 0);
+function Circle(x, y, radius, color){
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+
+var col = color
+Circle.prototype.xcorc = function(){
+return x;
+};
+Circle.prototype.ycorc = function(){
+return y;
+};
+Circle.prototype.drawCircle = function(a, b, c){
+x = x+a;
+y= y+b;
+r = radius +c
+ctx.arc(x,y,radius,0,2*Math.PI);
+//ctx.stroke();
+
+      ctx.fillStyle = col;
+      ctx.fill();
+      ctx.lineWidth = 5;
+      ctx.strokeStyle = "red";
+      ctx.stroke();
+ctx.closePath();
+ctx.beginPath();
+};
+};
+var circ = new Circle(100, 150, 20, '#FF0000');
+circ.drawCircle(50, 50, 0);
+//var circ2 = new Circle(200, 200, 30, 'magenta');
+//var circ3 = new Circle(150, 50, 25, 'blue');
+
+document.onkeydown = function(e) {
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+if (!maintrack)
+{
+    switch (e.keyCode) {
+        case 37:
+            console.log("left");
+            ctx.clearRect(0, 0, 500, 500);
+            if(circ.xcorc() >= 0){
+            circ.drawCircle(-5, 0, 0);
+             }
+            else{circ.drawCircle(0, 0, 0);}
+
+            break;
+        case 38:
+            console.log("up");
+            ctx.clearRect(0, 0, 500, 500);
+            if(circ.ycorc() >= 0){
+            circ.drawCircle(0, -5, 0);}
+            else{circ.drawCircle(0, 0, 0);}
+            break;
+        case 39:
+           console.log("right");
+           ctx.clearRect(0, 0, 500, 500);
+           if (circ.xcorc() <= 500){
+           circ.drawCircle(5, 0, 0);}
+           else{circ.drawCircle(0, 0, 0);}
+            break;
+        case 40:
+          console.log("down");
+          ctx.clearRect(0, 0, 500, 500);
+           if (circ.ycorc() <= 500){
+           circ.drawCircle(0, 5, 0);}
+            else{circ.drawCircle(0, 0, 0);}
+
+            break;
+}}
+rectangle.drawRect(0, 0);
+
+</script>
+
+<!-- Code for circle that is going to chase the caveman. Just
+a placeholder... Circle will become predators.-->
+
+<!--
+<script>
+=======
+
+ <!-- <script>
+>>>>>>> aad0772f4862c41447be64f6ebaa32cef8eee1d3
+  var canvas = document.getElementById("gjs-canvas");
+  var context = canvas.getContext("2d");
+    context.beginPath();
+    context.lineWidth = 3
+    context.fill();
+    context.fillStyle = "blue";
+    context.arc(150,150,40,0,2*Math.PI);
+    context.stroke();
+    context.strokeStyle = "pink";
+    context.fill();
+    context.stroke();
+<<<<<<< HEAD
+</script>
+-->
+
+<!-- <script src="map.js"></script>
+
+<!-- This is the audio file code. IT WORKS. -->
+
+<audio autoplay="autoplay" controls loop hidden>
+   <source src="sound.mp3" />
+</audio>
+</script>
+</html>
